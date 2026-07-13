@@ -7,4 +7,18 @@
 ;; 三個;;; 表示一個章節或區塊的開始
 ;;
 ;; 四個;;;; 很大的章節. 一般使用者幾乎不會用到
+;; M-; (alt+;) 可以註解. 用V下，再用它就可以整列註解
 
+
+;;; 🟧 package 管理
+;; ;; 這一段是Emacs 26~28時代，幾乎都是必寫的內容. Emacs29/30以後，可以先忽略
+;; (require 'package) ; 載入Emacs的套件管理器: package.el # Note: Emacs本身有很多模組: 例如: package, dired, org, clendar. 都可以用 (require 'xxx) 的方式來載入
+;;
+;; ;; 以下這段是告訴package去哪裡下載套件
+;; ;; Emacs 官方只有 GNU ELPA
+;; ;; 很多第三方套件（像 evil、magit、consult）都放在 MELPA
+;; (add-to-list 'package-archives
+;;              '("melpa" . "https://melpa.org/packages/")
+;;              t)
+
+;; (package-initialize) ; 初始化套件管理器: {掃描已安裝套件, 加到 load-path, 可以 require}
