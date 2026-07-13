@@ -22,6 +22,16 @@
 ;;              t)
 
 ;; (package-initialize) ; 初始化套件管理器: {掃描已安裝套件, 加到 load-path, 可以 require}
+
+;;; 🟧 use-package
+;; Evil ; Important: 使用Evil可以讓emacs的操作盡量和nvim相同
+;; use-package 利用 package 去安裝東西
+(use-package evil  ; 設定一個叫做 evil 的套件. 類似lua的require
+  :ensure t        ; 如果沒有安裝，就會自動安裝. 如果是用 `:ensure nil` 為不安裝. 如果是這種情況通常是用在Emacs內建已經內建的內容
+  :config          ; 套件載入完成後，要執行下面這些這定
+  (evil-mode 1))   ; 開啟Evil Mode. 很多Emacs套件都是 (xxx-mode 1)
+;; 等同: `package-install evil`
+
 ;;; 🟧 可選項設定
 ;; ;; 不顯示工具列
 ;; (tool-bar-mode -1)
