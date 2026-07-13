@@ -13,6 +13,11 @@ places
 history
 savehist
 
+
+# eww (Emacs Web Wowser)相關的檔案
+url/cache/
+url/cookies
+
 # 套件產生的狀態
 transient/
 tramp
