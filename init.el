@@ -22,3 +22,27 @@
 ;;              t)
 
 ;; (package-initialize) ; 初始化套件管理器: {掃描已安裝套件, 加到 load-path, 可以 require}
+;;; 🟧 可選項設定
+;; ;; 不顯示工具列
+;; (tool-bar-mode -1)
+;;
+;; ;; 不顯示捲軸
+;; (scroll-bar-mode -1)
+;;
+;; ;; 不顯示選單列（可選）
+;; (menu-bar-mode -1)
+;;
+;; ;; 顯示行號
+;; (global-display-line-numbers-mode 1)
+;;
+;; ;; 顯示欄號
+;; (column-number-mode 1)
+;;
+;; ;; 使用空白取代 Tab
+;; (setq-default indent-tabs-mode nil)
+;;
+;; ;; Tab 寬度
+;; (setq-default tab-width 4)
+
+;; ;; 開敵Which-Key
+;; (which-key-mode 1)
