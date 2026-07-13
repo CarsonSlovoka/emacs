@@ -1,0 +1,28 @@
+# 此目錄和emacs是共用的，所以要忽略相關的內容
+# 安裝的套件
+elpa/
+eln-cache/
+straight/
+var/
+
+# 快取和歷史資料
+auto-save-list/
+recentf
+bookmarks
+places
+history
+savehist
+
+# 套件產生的狀態
+transient/
+tramp
+projectile-bookmarks.eld
+
+# 自動備份與暫存
+*~
+\#*\#
+.\#*
+
+# macOS
+.DS_Store
+
