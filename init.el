@@ -1,15 +1,34 @@
 ;;; 🟧 package 管理
-;; ;; 這一段是Emacs 26~28時代，幾乎都是必寫的內容. Emacs29/30以後，可以先忽略
-;; (require 'package) ; 載入Emacs的套件管理器: package.el # Note: Emacs本身有很多模組: 例如: package, dired, org, clendar. 都可以用 (require 'xxx) 的方式來載入
+(require 'package) ; 載入Emacs的套件管理器: package.el # Note: Emacs本身有很多模組: 例如: package, dired, org, clendar. 都可以用 (require 'xxx) 的方式來載入
 ;;
 ;; ;; 以下這段是告訴package去哪裡下載套件
 ;; ;; Emacs 官方只有 GNU ELPA
-;; ;; 很多第三方套件（像 evil、magit、consult）都放在 MELPA
+;; ;; 很多第三方套件（像 evil、magit、consult）都放在 melpa
 ;; (add-to-list 'package-archives
 ;;              '("melpa" . "https://melpa.org/packages/")
 ;;              t)
 
-;; (package-initialize) ; 初始化套件管理器: {掃描已安裝套件, 加到 load-path, 可以 require}
+(require 'package)
+(setq package-archives
+      '(
+        ; ("gnu"   . "https://elpa.gnu.org/packages/")    ; 安全性最高，由 GNU 專案維護
+        ; ("nongnu". "https://elpa.nongnu.org/nongnu/")   ; 由 GNU 官方維護，但允許非 GPL 的套件，安全性也很高
+        ("melpa" . "https://melpa.org/packages/")         ; MELPA：社群維護，套件最多，但審核較寬鬆. 不過所有人都可以看到原始碼
+        )
+)
+
+(package-initialize) ; 初始化套件管理器: {掃描已安裝套件, 加到 load-path, 可以 require}
+
+;; 建立索引在: package-archive-contents 此變數之中. 如果目前還沒有套件索引，就下載一次.
+;; 如果沒有加，每次啟動emacs時都會將 package-archives 提到的內容: 重新下載所有 package index。
+(unless package-archive-contents
+  (package-refresh-contents))
+
+
+; ;; 如果 use-package 就會去安裝它 Note: Emacs 30預設就已經有了
+; (unless (package-installed-p 'use-package)
+;   (package-install 'use-package))
+
 
 ;;; 🟧 將 ./lisp 目錄加入載入路徑. 缺點: 子目錄的檔案不會主動抓，要手動加入
 ; (add-to-list 'load-path
@@ -43,4 +62,17 @@
 
 (require 'config/options)    ; lisp/config/options.el
 (require 'config/tab-bar)    ; lisp/config/tab-bar.el
+(require 'config/themes)     ; lisp/config/themes.el
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
