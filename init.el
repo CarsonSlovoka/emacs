@@ -64,6 +64,8 @@
 (require 'config/tab-bar)    ; lisp/config/tab-bar.el
 (require 'config/themes)     ; lisp/config/themes.el
 
+(require 'config/bookmarks)  ; lisp/config/bookmarks.el
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
