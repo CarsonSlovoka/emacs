@@ -33,4 +33,16 @@
      (file-name-nondirectory (buffer-file-name)))))
   (bookmark-set name)) ; name如果為空 bookmark-set 預設用buffer的名稱
 
+
+; 以下不好，雖然能像vim, 但是很多原本bookmark提供的熱鍵都要重加
+; (with-eval-after-load 'bookmark
+;   (evil-set-initial-state 'bookmark-bmenu-mode 'normal)
+;   (evil-define-key 'normal bookmark-bmenu-mode-map
+;     (kbd "j") #'evil-next-line
+;     (kbd "k") #'evil-previous-line))
+
+(with-eval-after-load 'bookmark
+  (define-key bookmark-bmenu-mode-map (kbd "j") #'next-line)
+  (define-key bookmark-bmenu-mode-map (kbd "k") #'previous-line))
+
 (provide 'config/bookmarks)
