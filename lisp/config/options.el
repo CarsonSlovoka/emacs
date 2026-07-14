@@ -10,9 +10,9 @@
 ;; ;; 不顯示捲軸
 ;; (scroll-bar-mode -1)
 ;;
-;; ;; 不顯示選單列（可選）
-;; (menu-bar-mode -1)
-;;
+;; 不顯示選單列 {File, Edit, Options, Buffers Tools Sh-Script Help} 等這些資訊
+(menu-bar-mode -1)
+
 
 ;; 顯示行號
 (setq display-line-numbers-type 'relative) ; 加這個才會顯示相對行號
