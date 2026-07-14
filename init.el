@@ -23,11 +23,33 @@
 
 ;; (package-initialize) ; 初始化套件管理器: {掃描已安裝套件, 加到 load-path, 可以 require}
 
-;;; 🟧 將 ./lisp 目錄加入載入路徑
-(add-to-list 'load-path
-             (expand-file-name "lisp" user-emacs-directory))
+;;; 🟧 將 ./lisp 目錄加入載入路徑. 缺點: 子目錄的檔案不會主動抓，要手動加入
+; (add-to-list 'load-path
+;               (expand-file-name "lisp" user-emacs-directory))
+; (add-to-list 'load-path
+;               (expand-file-name "lisp/tests" user-emacs-directory))
+
+;; 利用: normal-top-level-add-subdirs-to-load-path 缺點: lisp/*.el 不會進來
+;; (let ((default-directory  ; 用這種方式，就可以將lisp/**/*.el也都會考慮進來. 從 default-directory 開始，把所有符合條件的子目錄加入 load-path. Warn: 但是lisp/*.el中的內容就不會被納入，要有子目錄才可以
+;;         (expand-file-name "lisp" user-emacs-directory)))
+;;   (normal-top-level-add-subdirs-to-load-path))
+
+;; 定義變數
+(defconst my/lisp-dir
+  (expand-file-name "lisp" user-emacs-directory))
+
+;; 加入變數的內容到 load-path 之中
+(add-to-list 'load-path my/lisp-dir)
+
+;; Tip: 如此就比較自由，也不需要用內建的: (normal-top-level-add-subdirs-to-load-path) 來輔助
+;; 這種方式，可以對 lisp/*.ls, list/**/*.ls都能抓到
+(dolist (dir (directory-files my/lisp-dir t "^[^.].*"))
+  (when (file-directory-p dir)
+    (add-to-list 'load-path dir)))
+
 (require 'init-evil)         ; lisp/init-evil.el
 (require 'init-clipboard)    ; lisp/init-clipboard.el
+(require 'test_hello)        ; lisp/tests/test_hello.el
 
 ;;; 🟧 可選項設定
 ;; t 指的是 true ;
