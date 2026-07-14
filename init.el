@@ -42,4 +42,5 @@
 (require 'test_hello)        ; lisp/tests/test_hello.el
 
 (require 'config/options)    ; lisp/config/options.el
+(require 'config/tab-bar)    ; lisp/config/tab-bar.el
 
