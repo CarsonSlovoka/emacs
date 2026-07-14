@@ -39,32 +39,7 @@
 (require 'init-clipboard)    ; lisp/init-clipboard.el
 (require 'test_hello)        ; lisp/tests/test_hello.el
 
-;;; 🟧 可選項設定
-;; t 指的是 true ;
-;; nil或0 預設行為;
-;; 負數(通常-1): 關閉
+(require 'test_hello)        ; lisp/tests/test_hello.el
 
+(require 'config/options)    ; lisp/config/options.el
 
-;; ;; 不顯示工具列
-;; (tool-bar-mode -1)
-;;
-;; ;; 不顯示捲軸
-;; (scroll-bar-mode -1)
-;;
-;; ;; 不顯示選單列（可選）
-;; (menu-bar-mode -1)
-;;
-;; ;; 顯示行號
-;; (global-display-line-numbers-mode 1)
-;;
-;; ;; 顯示欄號
-;; (column-number-mode 1)
-;;
-;; ;; 使用空白取代 Tab
-;; (setq-default indent-tabs-mode nil)
-;;
-;; ;; Tab 寬度
-;; (setq-default tab-width 4)
-
-;; ;; 開敵Which-Key
-;; (which-key-mode 1)
