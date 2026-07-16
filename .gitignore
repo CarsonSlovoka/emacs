@@ -31,3 +31,5 @@ projectile-bookmarks.eld
 # macOS
 .DS_Store
 
+# tetris的記錄檔(曉得最高排名的是誰)
+/games/tetris-scores

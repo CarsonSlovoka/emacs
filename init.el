@@ -66,6 +66,9 @@
 
 (require 'config/bookmarks)  ; lisp/config/bookmarks.el
 
+; (require 'game.tetris)       ; Caution 這樣是錯的, 不能用「.」
+(require 'game/tetris-config)  ; lisp/game/tetris.el
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
