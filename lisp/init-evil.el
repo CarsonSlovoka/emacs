@@ -19,5 +19,18 @@
 ;; 如果不想要在evil中設定熱鍵，也可以用以下的方式來調整
 ;; (keymap-global-unset "M-.") ; 移除原本的熱鍵
 ;; (keymap-set global-map "C-c d" #'xref-find-definitions)
+;; (bind-key "C-c l" 'goto-line) ; ✅
+
+
+;; Must be set BEFORE defining key sequences
+(setq evil-leader/in-all-states t)
+
+;; Assign the core triggers using Evil functions
+(evil-set-leader 'normal (kbd "\\"))
+(evil-set-leader 'motion (kbd "\\"))
+
+;; Bind keys specifically inside the leader map
+(evil-define-key 'normal 'global (kbd "<leader>bk") 'list-bookmarks)
+
 
 (provide 'init-evil) ; Important: 這個和require是匹配的，有這個外面用require才會有用
