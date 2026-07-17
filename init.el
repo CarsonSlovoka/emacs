@@ -11,11 +11,11 @@
 (require 'package)
 (setq package-archives
       '(
-        ; ("gnu"   . "https://elpa.gnu.org/packages/")    ; 安全性最高，由 GNU 專案維護
-        ; ("nongnu". "https://elpa.nongnu.org/nongnu/")   ; 由 GNU 官方維護，但允許非 GPL 的套件，安全性也很高
+        ;; ("gnu"   . "https://elpa.gnu.org/packages/")    ; 安全性最高，由 GNU 專案維護
+        ;; ("nongnu". "https://elpa.nongnu.org/nongnu/")   ; 由 GNU 官方維護，但允許非 GPL 的套件，安全性也很高
         ("melpa" . "https://melpa.org/packages/")         ; MELPA：社群維護，套件最多，但審核較寬鬆. 不過所有人都可以看到原始碼
         )
-)
+      )
 
 (package-initialize) ; 初始化套件管理器: {掃描已安裝套件, 加到 load-path, 可以 require}
 
@@ -25,16 +25,16 @@
   (package-refresh-contents))
 
 
-; ;; 如果 use-package 就會去安裝它 Note: Emacs 30預設就已經有了
-; (unless (package-installed-p 'use-package)
-;   (package-install 'use-package))
+;; ;; 如果 use-package 就會去安裝它 Note: Emacs 30預設就已經有了
+;; (unless (package-installed-p 'use-package)
+;;   (package-install 'use-package))
 
 
 ;;; 🟧 將 ./lisp 目錄加入載入路徑. 缺點: 子目錄的檔案不會主動抓，要手動加入
-; (add-to-list 'load-path
-;               (expand-file-name "lisp" user-emacs-directory))
-; (add-to-list 'load-path
-;               (expand-file-name "lisp/tests" user-emacs-directory))
+;; (add-to-list 'load-path
+;;               (expand-file-name "lisp" user-emacs-directory))
+;; (add-to-list 'load-path
+;;               (expand-file-name "lisp/tests" user-emacs-directory))
 
 ;; 利用: normal-top-level-add-subdirs-to-load-path 缺點: lisp/*.el 不會進來
 ;; (let ((default-directory  ; 用這種方式，就可以將lisp/**/*.el也都會考慮進來. 從 default-directory 開始，把所有符合條件的子目錄加入 load-path. Warn: 但是lisp/*.el中的內容就不會被納入，要有子目錄才可以
@@ -66,7 +66,7 @@
 
 (require 'config/bookmarks)  ; lisp/config/bookmarks.el
 
-; (require 'game.tetris)       ; Caution 這樣是錯的, 不能用「.」
+;; (require 'game.tetris)      ; Caution 這樣是錯的, 不能用「.」
 (require 'game/tetris-config)  ; lisp/game/tetris.el
 
 (custom-set-variables
