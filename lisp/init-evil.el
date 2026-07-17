@@ -14,16 +14,55 @@
               (kbd "C-o")  ; (kbd "M-,")
               #'xref-go-back)
 
-  ; 改變state的顯示，更加清楚
-  (setq evil-normal-state-tag   " <NORMAL> "
-        evil-insert-state-tag   " <INSERT> "
-        evil-visual-state-tag   " <VISUAL> "
-        evil-replace-state-tag  " <REPLACE> "
-        evil-operator-state-tag " <OPERATOR> "
-        evil-motion-state-tag   " <MOTION> "
-        evil-emacs-state-tag    " <EMACS> "
+  ;; 改變state的顯示，更加清楚
+  ;; 這些可行，但是沒有顏色,和樣式
+  ;; (setq evil-normal-state-tag   " <NORMAL> "
+  ;;       evil-insert-state-tag   " <INSERT> "
+  ;;       evil-visual-state-tag   " <VISUAL> "
+  ;;       evil-replace-state-tag  " <REPLACE> "
+  ;;       evil-operator-state-tag " <OPERATOR> "
+  ;;       evil-motion-state-tag   " <MOTION> "
+  ;;       evil-emacs-state-tag    " <EMACS> "
+  ;;       )
+
+  (setq evil-normal-state-tag
+        ;; (propertize " <NORMAL> " ; 不用< > 反而有點礙眼
+        (propertize " NORMAL "
+                    'face '(:foreground "#101216"
+                                        :background "#5d99fe"
+                                        :weight bold))
+        evil-insert-state-tag
+        (propertize " INSERT "
+                    'face '(:foreground "#101216"
+                                        :background "#44b347"
+                                        :weight bold))
+        evil-visual-state-tag
+        (propertize " VISUAL "
+                    'face '(:foreground "#101216"
+                                        :background "#c69026"
+                                        :weight bold))
+        evil-replace-state-tag
+        (propertize " REPLACE "
+                    'face '(:foreground "#101216"
+                                        :background "#f66f6a"
+                                        :weight bold))
+        evil-operator-state-tag
+        (propertize " OPERATOR "
+                    'face '(:foreground "black"
+                                        :background "orange"
+                                        :weight bold))
+        evil-motion-state-tag
+        (propertize " MOTION "
+                    'face '(:foreground "white"
+                                        :background "blue"
+                                        :weight bold))
+        evil-emacs-state-tag
+        (propertize " EMACS "
+                    'face '(:foreground "white"
+                                        :background "gray40"
+                                        :weight bold))
         )
-)
+  )
 ;; 等同: `package-install evil`
 
 ;; 如果不想要在evil中設定熱鍵，也可以用以下的方式來調整
