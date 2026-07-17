@@ -67,7 +67,7 @@
 (require 'config/bookmarks)  ; lisp/config/bookmarks.el
 
 ;; (require 'game.tetris)      ; Caution 這樣是錯的, 不能用「.」
-(require 'game/tetris-config)  ; lisp/game/tetris.el
+(require 'game/tetris-config)  ; lisp/game/tetris-config.el
 
 
 ;;; 🟧 自定義custom-file的路徑，改為 ~/.emacs.d/custom.el
