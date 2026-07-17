@@ -33,3 +33,4 @@ projectile-bookmarks.eld
 
 # tetris的記錄檔(曉得最高排名的是誰)
 /games/tetris-scores
+/custom-file.el

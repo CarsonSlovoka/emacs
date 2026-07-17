@@ -82,6 +82,6 @@
 ;; Its value is "~/.emacs.d/custom.el" 👈 如果有設定，這裡會多出這一行. 不然只會有下面的nil
 ;; Original value was nil              如果是 nil 就表代保存在: ~/.emacs.d/init.el 之中
 (setq custom-file
-      (expand-file-name "custom.el" user-emacs-directory))
+      (expand-file-name "custom-file.el" user-emacs-directory))
                                         ; (load custom-file) ; 用這樣如果此檔案不存在，就會報錯
 (load custom-file 'noerror 'nomessage)
