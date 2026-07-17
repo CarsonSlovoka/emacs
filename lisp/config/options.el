@@ -30,4 +30,16 @@
 ;; ;; 開敵Which-Key
 ;; (which-key-mode 1)
 
+
+;;; 備分
+;; M-h v make-backup-files
+;; 不建立 backup file (xxx~)
+(setq make-backup-files nil)
+
+;; 不建立 auto save (#xxx#)
+(setq auto-save-default nil)
+
+;; 不建立 lock file (.#xxx)
+(setq create-lockfiles nil)
+
 (provide 'config/options)
