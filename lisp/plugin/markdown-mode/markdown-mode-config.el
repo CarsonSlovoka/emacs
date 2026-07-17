@@ -13,6 +13,11 @@
 
   :custom
   (markdown-max-image-size '(800 . nil)) ; 寬度最大800, 高度會自動依比率縮放.
+  ;; Note: `:(image-transforms-p)` 如果有顯示，例如: (scale rotate90) 就表示frame能夠處理縮放. 若不支持才有可能走ImageMagick的版本.
+  ;; 縮圖存在哪？
+  ;; 原始圖片：硬碟
+  ;; 解碼及縮放結果：Emacs 記憶體
+  ;; 永久縮圖檔：沒有
 
   :hook
   (
