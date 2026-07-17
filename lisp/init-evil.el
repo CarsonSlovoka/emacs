@@ -13,6 +13,16 @@
   (define-key evil-normal-state-map
               (kbd "C-o")  ; (kbd "M-,")
               #'xref-go-back)
+
+  ; 改變state的顯示，更加清楚
+  (setq evil-normal-state-tag   " <NORMAL> "
+        evil-insert-state-tag   " <INSERT> "
+        evil-visual-state-tag   " <VISUAL> "
+        evil-replace-state-tag  " <REPLACE> "
+        evil-operator-state-tag " <OPERATOR> "
+        evil-motion-state-tag   " <MOTION> "
+        evil-emacs-state-tag    " <EMACS> "
+        )
 )
 ;; 等同: `package-install evil`
 
