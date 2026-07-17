@@ -97,6 +97,7 @@
                    ;; 旋轉
                    (kbd "k")   #'tetris-rotate-prev
                    (kbd "z")   #'tetris-rotate-next ; 預設的熱鍵中沒有這個
+                   (kbd "a")   #'tetris-rotate-next
                    (kbd "x")   #'tetris-rotate-prev
 
                    ;; 遊戲控制
