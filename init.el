@@ -69,15 +69,14 @@
 ;; (require 'game.tetris)      ; Caution 這樣是錯的, 不能用「.」
 (require 'game/tetris-config)  ; lisp/game/tetris.el
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+;;; 🟧 自定義custom-file的路徑，改為 ~/.emacs.d/custom.el
+;; 由: `C-h v custom-file` 可以看到
+;;
+;; custom-file is a variable defined in ‘cus-edit.el’.
+;; Its value is "~/.emacs.d/custom.el" 👈 如果有設定，這裡會多出這一行. 不然只會有下面的nil
+;; Original value was nil              如果是 nil 就表代保存在: ~/.emacs.d/init.el 之中
+(setq custom-file
+      (expand-file-name "custom.el" user-emacs-directory))
+                                        ; (load custom-file) ; 用這樣如果此檔案不存在，就會報錯
+(load custom-file 'noerror 'nomessage)
