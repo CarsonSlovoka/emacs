@@ -72,6 +72,7 @@
 (require 'game/tetris-config)  ; lisp/game/tetris-config.el
 
 ;;; 🟧 Plugin
+(require 'plugin/eww/eww-config)                      ; lisp/plugin/eww/eww-config.el
 (require 'plugin/markdown-mode/markdown-mode-config)  ; lisp/plugin/markdown-mode/markdown-mode-config.el
 
 
