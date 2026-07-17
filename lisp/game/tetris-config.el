@@ -1,6 +1,12 @@
 ;; Caution 不能使用 tetris.el當成檔名，因為名稱會衝突到，可以用 `M-: locate-library "tetris"` 就會曉得是抓哪裡的檔案
 ;;; 用homebrew裝的路徑: /opt/homebrew/Cellar/emacs/30.2_2/share/emacs/30.2/lisp/play/tetris.elc
 
+
+(defun my-tetris-update-speed (_shapes rows)
+  "依照已消除的行數逐漸加快。"
+  (max 0.08 ; 限制最快只能0.08秒降一格
+       (- 0.5 (* rows 0.01)))) ; 初始0.5秒, 之後每消一行會降0.01 => 消10行後會變成0.4
+
 (use-package tetris
   :ensure nil
   :defer t
@@ -26,10 +32,13 @@
                    (kbd "q")   #'tetris-end-game
                    )
 
-  ;; 固定下落速度：每 0.5 秒下降一格
+  ;; ;; 固定下落速度：每 0.5 秒下降一格
+  ;; (setq tetris-update-speed-function
+  ;;       (lambda (_shapes _rows)
+  ;;         0.5))
+
   (setq tetris-update-speed-function
-        (lambda (_shapes _rows)
-          0.5))
+        #'my-tetris-update-speed)
   )
 
 (provide 'game/tetris-config)
