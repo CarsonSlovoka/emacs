@@ -18,51 +18,62 @@
   ;; 這些可行，但是沒有顏色,和樣式
   ;; (setq evil-normal-state-tag   " <NORMAL> "
   ;;       evil-insert-state-tag   " <INSERT> "
-  ;;       evil-visual-state-tag   " <VISUAL> "
-  ;;       evil-replace-state-tag  " <REPLACE> "
-  ;;       evil-operator-state-tag " <OPERATOR> "
-  ;;       evil-motion-state-tag   " <MOTION> "
-  ;;       evil-emacs-state-tag    " <EMACS> "
+  ;;       ...
   ;;       )
 
+  ;; 以下可以有顏色和樣式，但是顏色在失焦的window上還是會有
+  ;; (setq evil-normal-state-tag
+  ;;       (propertize " NORMAL "
+  ;;                   'face '(:foreground "#101216"
+  ;;                                       :background "#5d99fe"
+  ;;                                       :weight bold))
+  ;;       evil-insert-state-tag
+  ;;       (propertize " INSERT "
+  ;;                   'face '(:foreground "#101216"
+  ;;                                       :background "#44b347"
+  ;;                                       :weight bold))
+  ;;       ...
+  ;;       )
+
+
+  ;; 利用: `mode-line-window-selected-p` 達成只在focus的視窗才會改state-tag
+  (defun my-evil-tag (text fg bg)
+    (propertize
+     text
+     'face
+     (if (mode-line-window-selected-p) ; Tip: `mode-line-window-selected-p` 在 Emacs 30 是內建的，它會判斷目前 mode-line 是不是屬於被選取的 window。 失去 focus 的 window 就會完全使用 mode-line-inactive 的樣式
+         `(:foreground ,fg
+                       :background ,bg
+                       :weight bold)
+       'mode-line-inactive)))
+
   (setq evil-normal-state-tag
-        ;; (propertize " <NORMAL> " ; 不用< > 反而有點礙眼
-        (propertize " NORMAL "
-                    'face '(:foreground "#101216"
-                                        :background "#5d99fe"
-                                        :weight bold))
+        '(:eval (my-evil-tag " NORMAL " "#101216" "#5d99fe"))
+
         evil-insert-state-tag
-        (propertize " INSERT "
-                    'face '(:foreground "#101216"
-                                        :background "#44b347"
-                                        :weight bold))
+        '(:eval (my-evil-tag " INSERT " "#101216" "#44b347"))
+
         evil-visual-state-tag
-        (propertize " VISUAL "
-                    'face '(:foreground "#101216"
-                                        :background "#c69026"
-                                        :weight bold))
+        '(:eval (my-evil-tag " VISUAL " "#101216" "#c69026"))
+
         evil-replace-state-tag
-        (propertize " REPLACE "
-                    'face '(:foreground "#101216"
-                                        :background "#f66f6a"
-                                        :weight bold))
+        '(:eval (my-evil-tag " REPLACE " "#101216" "#f66f6a"))
+
         evil-operator-state-tag
-        (propertize " OPERATOR "
-                    'face '(:foreground "black"
-                                        :background "orange"
-                                        :weight bold))
+        '(:eval (my-evil-tag "  OPERATOR " "black" "orange"))
+
         evil-motion-state-tag
-        (propertize " MOTION "
-                    'face '(:foreground "white"
-                                        :background "blue"
-                                        :weight bold))
+        '(:eval (my-evil-tag " MOTION " "black" "blue"))
+
         evil-emacs-state-tag
-        (propertize " EMACS "
-                    'face '(:foreground "white"
-                                        :background "gray40"
-                                        :weight bold))
+        '(:eval (my-evil-tag " EMACS " "white" "gray40"))
+
         )
+
+
+
   )
+
 ;; 等同: `package-install evil`
 
 ;; 如果不想要在evil中設定熱鍵，也可以用以下的方式來調整
