@@ -61,6 +61,7 @@
 (require 'test_hello)        ; lisp/tests/test_hello.el
 
 (require 'config/options)    ; lisp/config/options.el
+(require 'config/keymaps)    ; lisp/config/keymaps.el
 (require 'config/tab-bar)    ; lisp/config/tab-bar.el
 (require 'config/themes)     ; lisp/config/themes.el
 
