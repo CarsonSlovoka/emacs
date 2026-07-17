@@ -6,9 +6,9 @@
   :defer t
   :config
 
-  (evil-set-initial-state 'tetris-mode 'normal) ; 這邊可以調整預設進入要使用的mode, 原本是E
-  (evil-define-key 'normal tetris-mode-map
-    ;; 移動
+  ;; (evil-set-initial-state 'tetris-mode 'normal) ; 這邊可以調整預設進入要使用的mode, 原本是emacs
+  ;; (evil-define-key 'normal tetris-mode-map
+  (evil-define-key 'emacs tetris-mode-map ; 直接在原本的state: emacs 修改即可
                    ;; 移動
                    (kbd "h")   #'tetris-move-left
                    (kbd "j")   #'tetris-move-down
