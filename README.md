@@ -1,7 +1,8 @@
 ## Install Emacs
 
 ```sh
-brew install emacs
+# brew install emacs    # 這個想要看圖片會沒有辦法, 需要用它的app才會得到支持
+brew install emacs-app  # 裝完後可以 `open -a emacs` 來啟動. 接著如果有裝 markdown-mode 就能直接看到選片
 ```
 
 
@@ -92,6 +93,28 @@ q                   tetris-end-game
 ```
 
 > [!IMPORTANT] 在不同的state所能使用的熱鍵可能是不同的
+
+
+### 目錄結構
+
+```bash
+.
+├── README.md
+├── bookmarks                                   # 書籤的內容保存在此檔案
+├── elpa                                        # ⭐ 用 use-package 且當中設定 `:ensure t` 預設(靠package.el)它會將第三方的插件放到此目錄
+│   ├── archives
+│   ├── doom-themes-20260117.2323
+│   ├── evil-1.15.0
+│   ├── evil-1.15.0.signed
+│   ├── gnupg
+│   └── markdown-mode-20260425.954
+├── games                                       # 玩:tetris時會記錄的資料都在此目錄
+│   ├── tetris-scores
+│   └── tetris-scores~
+├── init.el
+└── url
+    └── cookies
+```
 
 ### Debug lisp
 

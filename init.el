@@ -71,6 +71,9 @@
 ;; (require 'game.tetris)      ; Caution 這樣是錯的, 不能用「.」
 (require 'game/tetris-config)  ; lisp/game/tetris-config.el
 
+;;; 🟧 Plugin
+(require 'plugin/markdown-mode/markdown-mode-config)  ; lisp/plugin/markdown-mode/markdown-mode-config.el
+
 
 ;;; 🟧 自定義custom-file的路徑，改為 ~/.emacs.d/custom.el
 ;; 由: `C-h v custom-file` 可以看到
