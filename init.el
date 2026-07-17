@@ -62,6 +62,7 @@
 
 (require 'config/options)    ; lisp/config/options.el
 (require 'config/keymaps)    ; lisp/config/keymaps.el
+(require 'config/hook)       ; lisp/config/hook.el
 (require 'config/tab-bar)    ; lisp/config/tab-bar.el
 (require 'config/themes)     ; lisp/config/themes.el
 
