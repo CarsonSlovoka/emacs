@@ -81,5 +81,7 @@
 ;; Bind keys specifically inside the leader map
 (evil-define-key 'normal 'global (kbd "<leader>bk") 'list-bookmarks)
 
+(evil-define-key 'normal 'global (kbd "C-o") #'evil-jump-backward)
+(evil-define-key 'normal 'global (kbd "C-i") #'evil-jump-forward)
 
 (provide 'init-evil) ; Important: 這個和require是匹配的，有這個外面用require才會有用
