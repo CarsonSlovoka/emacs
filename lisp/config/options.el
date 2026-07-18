@@ -4,11 +4,11 @@
 ;; nil或0 預設行為;
 ;; 負數(通常-1): 關閉
 
-;; ;; 不顯示工具列
-;; (tool-bar-mode -1)
+;; 不顯示工具列 (emacs-app會有)
+(tool-bar-mode -1)
 ;;
-;; ;; 不顯示捲軸
-;; (scroll-bar-mode -1)
+;; 不顯示捲軸 (emacs-app會有)
+(scroll-bar-mode -1)
 ;;
 ;; 不顯示選單列 {File, Edit, Options, Buffers Tools Sh-Script Help} 等這些資訊
 (menu-bar-mode -1)
