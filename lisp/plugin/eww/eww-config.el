@@ -1,7 +1,8 @@
 (use-package eww
   :ensure nil ; 內建就有的插件
-  :config
-
+  ;; :custom ; 純設定選項, 變數數值調整之類的
+  ;; (eww-search-prefix "https://www.google.com/search?q=") ; 可行，但javascript不能執行。所以還是用預設的 https://duckduckgo.com/html/q=? 會比較隱
+  :config ; 執行程式 (有需要執行的都要寫在這)
 
   ;;; 🟧 keymap
   ;; F1 b 之後找eww-相關
